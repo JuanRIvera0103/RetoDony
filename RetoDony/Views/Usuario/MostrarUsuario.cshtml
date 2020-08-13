@@ -1,0 +1,30 @@
+﻿@model IEnumerable<RetoDony.Models.Entities.Usuario>
+    <br />
+    <br />
+<h2>Usuarios</h2>
+<br />
+<p>@Html.ActionLink("Nuevo Usuario", "Crear")</p>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(x => x.Idusuario)</th>
+        <th>@Html.DisplayNameFor(x => x.Nombre)</th>
+        <th>@Html.DisplayNameFor(x => x.Telefono)</th>
+        <th>@Html.DisplayNameFor(x => x.Direccion)</th>
+        <th>@Html.DisplayNameFor(x => x.Email)</th>
+        <th>@Html.DisplayNameFor(x => x.Cargo)</th>
+    </tr>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(x => usuario.Idusuario)</td>
+            <td>@Html.DisplayFor(x => usuario.Nombre)</td>
+            <td>@Html.DisplayFor(x => usuario.Telefono)</td>
+            <td>@Html.DisplayFor(x => usuario.Direccion)</td>
+            <td>@Html.DisplayFor(x => usuario.Email)</td>
+            <td>@Html.DisplayFor(x => usuario.Cargo)</td>
+        </tr>
+        }
+    </tbody>
+</table>
