@@ -1,0 +1,32 @@
+﻿@model RetoDony.Models.Entities.Area
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Deseas eliminar esta area?</h3>
+<div>
+    <h4>Area</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombrearea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombrearea)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver", "MostrarArea")
+        </div>
+    }
+</div>

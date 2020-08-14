@@ -127,11 +127,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Business\AreaService.cs" />
+    <Compile Include="Models\Business\CargoService.cs" />
+    <Compile Include="Models\Business\UsuarioService.cs" />
     <Compile Include="Models\DAL\ApplicationDbContext.cs" />
     <Compile Include="Models\Entities\Area.cs" />
     <Compile Include="Models\Entities\Cargo.cs" />
@@ -173,11 +178,24 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Usuario\MostrarUsuario.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuario\Crear.cshtml" />
+    <Content Include="Views\Usuario\Editar.cshtml" />
+    <Content Include="Views\Usuario\Detalle.cshtml" />
+    <Content Include="Views\Usuario\Eliminar.cshtml" />
+    <Content Include="Views\Area\MostrarAreas.cshtml" />
+    <Content Include="Views\Area\Crear.cshtml" />
+    <Content Include="Views\Area\Editar.cshtml" />
+    <Content Include="Views\Area\Eliminar.cshtml" />
+    <Content Include="Views\Cargo\MostrarCargos.cshtml" />
+    <Content Include="Views\Area\Detalle.cshtml" />
+    <Content Include="Views\Cargo\Eliminar.cshtml" />
+    <Content Include="Views\Cargo\Crear.cshtml" />
+    <Content Include="Views\Cargo\Editar.cshtml" />
+    <Content Include="Views\Cargo\Detalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\Abstract\" />
-    <Folder Include="Models\Business\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

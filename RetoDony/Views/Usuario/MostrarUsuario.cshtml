@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<RetoDony.Models.Entities.Usuario>
-    <br />
-    <br />
+<br />
+<br />
+@{
+    ViewBag.Title = "Usuarios";
+}
 <h2>Usuarios</h2>
 <br />
 <p>@Html.ActionLink("Nuevo Usuario", "Crear")</p>
@@ -17,14 +20,19 @@
     <tbody>
         @foreach (var usuario in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(x => usuario.Idusuario)</td>
-            <td>@Html.DisplayFor(x => usuario.Nombre)</td>
-            <td>@Html.DisplayFor(x => usuario.Telefono)</td>
-            <td>@Html.DisplayFor(x => usuario.Direccion)</td>
-            <td>@Html.DisplayFor(x => usuario.Email)</td>
-            <td>@Html.DisplayFor(x => usuario.Cargo)</td>
-        </tr>
+            <tr>
+                <td>@Html.DisplayFor(x => usuario.Idusuario)</td>
+                <td>@Html.DisplayFor(x => usuario.Nombre)</td>
+                <td>@Html.DisplayFor(x => usuario.Telefono)</td>
+                <td>@Html.DisplayFor(x => usuario.Direccion)</td>
+                <td>@Html.DisplayFor(x => usuario.Email)</td>
+                <td>@Html.DisplayFor(x => usuario.Cargo)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = usuario.Idusuario }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = usuario.Idusuario }) |
+                    @Html.ActionLink("Detalle", "Detalle", new { id = usuario.Idusuario })
+                </td>
+            </tr>
         }
     </tbody>
 </table>
