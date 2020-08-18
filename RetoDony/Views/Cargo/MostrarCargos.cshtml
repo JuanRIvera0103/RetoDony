@@ -1,33 +1,31 @@
-﻿@model IEnumerable<RetoDony.Models.Entities.Cargo>
+﻿@model IEnumerable<RetoDony.Models.Entities.CargoArea>
 
 @{
     ViewBag.Title = "Cargos";
 }
 <br />
 <br />
-<h2>Usuarios</h2>
-<br />
-<p>@Html.ActionLink("Nuevo Cargo", "Crear")</p>
+<h2>Cargos</h2>
+<div>
+    <div class="btn btn-default">@Html.ActionLink("Nuevo Cargo", "Crear")</div>
+    <div class="btn btn-default">@Html.ActionLink("Nuevo Empleado", "Crear", "Usuario")</div>
+</div>
 
 <table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(x => x.Idcargo)</th>
+    <tr>        
         <th>@Html.DisplayNameFor(x => x.Nombre)</th>
-        <th>@Html.DisplayNameFor(x => x.Area)</th>
+        <th>@Html.DisplayNameFor(x => x.NombreArea)</th>
     </tr>
     <tbody>
-        @foreach (var cargo in Model)
+        @foreach (var cargoa in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(x => cargo.Idcargo)</td>
-                <td>@Html.DisplayFor(x => cargo.Nombre)</td>
-                <td>@Html.DisplayFor(x => cargo.Area)</td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { id = cargo.Idcargo }) |
-                    @Html.ActionLink("Eliminar", "Eliminar", new { id = cargo.Idcargo }) |
-                    @Html.ActionLink("Detalle", "Detalle", new { id = cargo.Idcargo })
-                </td>
-            </tr>
+        <tr style="margin-bottom: 5px;">
+            <td>@Html.DisplayFor(x => cargoa.Nombre)</td>
+            <td>@Html.DisplayFor(x => cargoa.NombreArea)</td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Editar", "Editar", new { id = cargoa.Idcargo }) </div></td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Eliminar", "Eliminar", new { id = cargoa.Idcargo }) </div></td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Detalle", "Detalle", new { id = cargoa.Idcargo })</div></td>
+        </tr >
         }
     </tbody>
 </table>

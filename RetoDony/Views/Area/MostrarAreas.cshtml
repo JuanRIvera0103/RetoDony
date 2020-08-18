@@ -4,9 +4,10 @@
 @{
     ViewBag.Title = "Areas";
 }
-<h2>Usuarios</h2>
+<h2>Areas</h2>
 <br />
 <p>@Html.ActionLink("Nueva Area", "Crear")</p>
+<p>@Html.ActionLink("Nuevo Cargo", "Crear", "Cargo")</p>
 
 <table class="table">
     <tr>
@@ -17,15 +18,13 @@
     <tbody>
         @foreach (var area in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(x => area.Idarea)</td>
-                <td>@Html.DisplayFor(x => area.Nombrearea)</td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { id = area.Idarea }) |
-                    @Html.ActionLink("Eliminar", "Eliminar", new { id = area.Idarea }) |
-                    @Html.ActionLink("Detalle", "Detalle", new { id = area.Idarea })
-                </td>
-            </tr>
+        <tr style="margin-bottom 5px;">
+            <td>@Html.DisplayFor(x => area.Idarea)</td>
+            <td>@Html.DisplayFor(x => area.Nombrearea)</td>
+            <td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Editar", "Editar", new { id = area.Idarea }) </div></td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Eliminar", "Eliminar", new { id = area.Idarea })</div> </td>
+        </tr>
         }
     </tbody>
 </table>

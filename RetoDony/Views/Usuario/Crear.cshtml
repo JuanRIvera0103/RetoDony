@@ -1,15 +1,19 @@
 ﻿@model RetoDony.Models.Entities.Usuario
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Empleado - Crear";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
 }
-
-<h2>Crear Usuario</h2>
+@if (ViewBag.error != null)
+{
+    <p>ViewBag.error;</p>
+} 
+<h2>Crear Empleado</h2>
 
 
 @using (Html.BeginForm())
 {
 <div class="form-horizontal">
-    <h4>Usuario:</h4>
+    <h4>Empleado:</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -42,19 +46,40 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(x => x.Edad, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(x => x.Edad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Edad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Tipodocumento, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(x => x.Tipodocumento, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Tipodocumento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Documento, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(x => x.Documento, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Documento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(x => x.Cargo, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(x => x.Cargo, new { @class = "form-control" })
+            @Html.DropDownList("Cargo", items, "Seleccione el cargo", new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.Cargo, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-2">
-            <input type="submit" value="Crear" class="btn btn-primary" />
+            <input type="submit" value="Crear" class="btn btn-success" />
         </div>
     </div>
 </div>
-    <div>
+    <div class="btn btn-default">
         @Html.ActionLink("Volver", "MostrarUsuario")
     </div>
 }

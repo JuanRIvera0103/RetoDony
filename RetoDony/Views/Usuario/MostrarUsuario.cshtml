@@ -1,38 +1,30 @@
-﻿@model IEnumerable<RetoDony.Models.Entities.Usuario>
+﻿@model IEnumerable<RetoDony.Models.Entities.UsuarioCargo>
 <br />
 <br />
 @{
-    ViewBag.Title = "Usuarios";
+    ViewBag.Title = "Empleados";
 }
-<h2>Usuarios</h2>
+<h2>Empleados</h2>
 <br />
-<p>@Html.ActionLink("Nuevo Usuario", "Crear")</p>
+<div class="btn btn-default">@Html.ActionLink("Nuevo Empleado", "Crear")</div>
 
 <table class="table">
     <tr>
-        <th>@Html.DisplayNameFor(x => x.Idusuario)</th>
         <th>@Html.DisplayNameFor(x => x.Nombre)</th>
-        <th>@Html.DisplayNameFor(x => x.Telefono)</th>
-        <th>@Html.DisplayNameFor(x => x.Direccion)</th>
-        <th>@Html.DisplayNameFor(x => x.Email)</th>
-        <th>@Html.DisplayNameFor(x => x.Cargo)</th>
+        <th>@Html.DisplayNameFor(x => x.Documento)</th>
+        <th>@Html.DisplayNameFor(x => x.NombreCargo)</th>
     </tr>
     <tbody>
-        @foreach (var usuario in Model)
+        @foreach (var usuarioc in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(x => usuario.Idusuario)</td>
-                <td>@Html.DisplayFor(x => usuario.Nombre)</td>
-                <td>@Html.DisplayFor(x => usuario.Telefono)</td>
-                <td>@Html.DisplayFor(x => usuario.Direccion)</td>
-                <td>@Html.DisplayFor(x => usuario.Email)</td>
-                <td>@Html.DisplayFor(x => usuario.Cargo)</td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { id = usuario.Idusuario }) |
-                    @Html.ActionLink("Eliminar", "Eliminar", new { id = usuario.Idusuario }) |
-                    @Html.ActionLink("Detalle", "Detalle", new { id = usuario.Idusuario })
-                </td>
-            </tr>
+        <tr style="margin-bottom: 5px">
+            <td>@Html.DisplayFor(x => usuarioc.Nombre)</td>
+            <td>@Html.DisplayFor(x => usuarioc.Documento)</td>
+            <td>@Html.DisplayFor(x => usuarioc.NombreCargo)</td>            
+            <td><div class="btn btn-default">@Html.ActionLink("Editar", "Editar", new { id = usuarioc.Idusuario }) </div></td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Eliminar", "Eliminar", new { id = usuarioc.Idusuario }) </div></td>
+            <td><div class="btn btn-default"> @Html.ActionLink("Detalle", "Detalle", new { id = usuarioc.Idusuario }) </div></td>
+        </tr>
         }
     </tbody>
 </table>

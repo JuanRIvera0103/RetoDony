@@ -75,5 +75,10 @@ namespace RetoDony.Models.Business
                 throw new Exception();
             }
         }
+        public ApplicationDbContext Conexion()
+        {
+            var cn = _context;
+            return cn;
+        }
     }
 }

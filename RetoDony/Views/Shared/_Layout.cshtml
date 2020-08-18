@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - TC#</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/fonts/imagenes/logo.svg" />   
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -28,11 +29,11 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content bottom">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Reto Dony</p>
         </footer>
     </div>
 

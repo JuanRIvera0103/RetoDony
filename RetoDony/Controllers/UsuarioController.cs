@@ -15,11 +15,61 @@ namespace RetoDony.Controllers
         private readonly UsuarioService usuarioservicio = new UsuarioService();
         // GET: Usuario
         public ActionResult MostrarUsuario()
-        {            
-            return View(usuarioservicio.EncontrarTodosLosUsuarios());
+        {
+            CargoService cargoservicio = new CargoService();
+            var listacargos = cargoservicio.EncontrarTodosLosCargos();
+            var listausuarios = usuarioservicio.EncontrarTodosLosUsuarios();
+
+            var result = (from emp in listausuarios
+                          join carg in listacargos
+                          on emp.Cargo equals carg.Idcargo
+                          select new { Usuario = emp, Cargo = carg }
+            );
+            List<UsuarioCargo> usuariocargo = new List<UsuarioCargo>();
+             
+            foreach (var item in result)
+            {
+                var usuario = item.Usuario;
+                var cargo = item.Cargo;
+                UsuarioCargo uscar = new UsuarioCargo(usuario.Idusuario, usuario.Nombre, 
+                    usuario.Telefono, usuario.Direccion, usuario.Email, usuario.Edad,
+                    usuario.Tipodocumento, usuario.Documento, cargo.Idcargo ,cargo.Nombre);
+
+                usuariocargo.Add(uscar);
+            }
+
+            return View(usuariocargo);
+            
         }
         public ActionResult Crear()
         {
+            CargoService cargoservicio = new CargoService();
+            var cn = cargoservicio.Conexion();
+            List<Cargo> lst = null;
+            using (cn)
+            {
+                lst = new List<Cargo>();
+                foreach (var c in cn.Cargo)
+                {
+                    lst.Add(new Cargo
+                    {
+                        Idcargo = c.Idcargo,
+                        Nombre = c.Nombre                        
+                    });
+                }
+            }
+
+            List<SelectListItem> items = lst.ConvertAll(d =>
+            {
+                return new SelectListItem()
+                {
+                    Text = d.Nombre.ToString(),
+                    Value = d.Idcargo.ToString(),
+                    Selected = false
+                };
+            });
+
+            ViewBag.items = items;
             return View();
         }
 
@@ -50,6 +100,34 @@ namespace RetoDony.Controllers
                 return View();
             }
 
+
+            CargoService cargoservicio = new CargoService();
+            var cn = cargoservicio.Conexion();
+            List<Cargo> lst = null;
+            using (cn)
+            {
+                lst = new List<Cargo>();
+                foreach (var c in cn.Cargo)
+                {
+                    lst.Add(new Cargo
+                    {
+                        Idcargo = c.Idcargo,
+                        Nombre = c.Nombre
+                    });
+                }
+            }
+
+            List<SelectListItem> items = lst.ConvertAll(d =>
+            {
+                return new SelectListItem()
+                {
+                    Text = d.Nombre.ToString(),
+                    Value = d.Idcargo.ToString(),
+                    Selected = false                    
+                };
+            });
+
+            ViewBag.items = items;
             return View(usuario);
         }
 

@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
+
 namespace RetoDony.Models.Business
 {
     public class AreaService
@@ -74,6 +75,11 @@ namespace RetoDony.Models.Business
 
                 throw new Exception();
             }
+        }
+        public ApplicationDbContext Conexion()
+        {
+            var cn = _context;            
+            return cn;
         }
     }
 }

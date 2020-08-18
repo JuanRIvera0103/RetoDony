@@ -11,7 +11,6 @@ namespace RetoDony.Models.DAL
     {
         public ApplicationDbContext():base("cn")
         {
-
         }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Area> Area { get; set; }

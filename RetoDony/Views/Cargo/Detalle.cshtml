@@ -1,21 +1,22 @@
 ﻿@model RetoDony.Models.Entities.Cargo
 
 @{
-    ViewBag.Title = "Detalle";
+    ViewBag.Title = "Cargos - Detalle";
 }
 
-<h2>Detalle</h2>
+<h2>Detalle Cargo</h2>
 
 <div>
-    <h4>Cargo</h4>
+    <h4>Cargo: </h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.Area)
+            @Html.DisplayNameFor(model => model.Idcargo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Area)
+            @Html.DisplayFor(model => model.Idcargo)
         </dd>
 
         <dt>
@@ -28,7 +29,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.Idcargo }) |
-    @Html.ActionLink("Volver", "MostrarCargos")
-</p>
+<div>
+    <div class="btn btn-default">@Html.ActionLink("Editar", "Editar", new { id = Model.Idcargo })</div>
+    <div class="btn btn-default">@Html.ActionLink("Volver", "MostrarCargos")</div>
+</div>
